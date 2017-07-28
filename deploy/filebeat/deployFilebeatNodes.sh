@@ -21,8 +21,8 @@ filebeat.prospectors:
     - /var/log/mesos/*.log
     - /var/log/dcos/dcos.log
 tail_files: true
-output.logstash:
-   hosts: ["!LOGSTASHNAME!.marathon.mesos:10514"]
+output.elasticsearch:
+   hosts: ["!ELASTIC_EXECUTOR_NAME!.!ELASTIC_NAME!.mesos:1025"]
 EOF
 
 sudo tee /etc/systemd/system/dcos-journalctl-filebeat.service<<-EOF 
