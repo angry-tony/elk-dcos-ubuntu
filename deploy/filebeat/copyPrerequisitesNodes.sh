@@ -5,9 +5,9 @@ ssh-add ../yourKey/!PRIVATEKEYNAME!
 # Will be prompted for you passphrase
 
 sudo apt-get install jq -y
-curl http://leader.mesos:1050/system/health/v1/nodes | jq '.nodes[].host_ip' | sed 's/\"//g' | sed '/172/d' > nodes.txt
+curl --unix-socket /run/dcos/3dt.sock http://localhost/system/health/v1/nodes | jq '.nodes[].host_ip' | sed 's/\"//g' | sed '/172/d' > nodes.txt
 
 cat nodes.txt | while read line
 do
-   ssh Julien@$line -o StrictHostKeyChecking=no -i ../yourKey/!PRIVATEKEYNAME! < ./deployFilebeatNodes.sh
+   ssh root@$line -o StrictHostKeyChecking=no -i ../yourKey/id_rsa < ./deployFilebeatNodes.sh
 done

@@ -1,7 +1,13 @@
 #!/bin/bash
 
-sudo wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.2.1-amd64.deb --no-check-certificate
-sudo dpkg -i filebeat-5.2.1-amd64.deb
+# sudo wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.2.1-amd64.deb --no-check-certificate
+# sudo dpkg -i filebeat-5.2.1-amd64.deb
+# https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html
+# curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.5.1-x86_64.rpm
+# sudo rpm -vi filebeat-5.5.1-x86_64.rpm
+curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.0.0-x86_64.rpm
+sudo rpm -vi filebeat-5.0.0-x86_64.rpm
+
 
 sudo mkdir -p /var/log/dcos
 sudo mv /etc/filebeat/filebeat.yml /etc/filebeat/filebeat.yml.BAK
@@ -62,4 +68,7 @@ EOF
 sudo chmod 0755 /etc/systemd/system/dcos-journalctl-filebeat.service
 sudo systemctl daemon-reload
 sudo systemctl start dcos-journalctl-filebeat.service
+sudo systemctl enable dcos-journalctl-filebeat.service
 sudo systemctl start filebeat
+sudo systemctl enable filebeat
+

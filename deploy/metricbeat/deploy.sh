@@ -1,7 +1,12 @@
 #### Not tested yet #####
 
-curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-5.2.1-amd64.deb
-sudo dpkg -i metricbeat-5.2.1-amd64.deb
+#curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-5.2.1-amd64.deb
+#sudo dpkg -i metricbeat-5.2.1-amd64.deb
+# https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation.html
+#curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-5.5.1-x86_64.rpm
+#sudo rpm -vi metricbeat-5.5.1-x86_64.rpm
+curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-5.2.1-x86_64.rpm
+sudo rpm -vi metricbeat-5.2.1-x86_64.rpm
 
 sudo mv /etc/metricbeat/metricbeat.yml /etc/metricbeat/metricbeat.yml.BAK
 
