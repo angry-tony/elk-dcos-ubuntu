@@ -1,10 +1,10 @@
 {
   "volumes": null,
-  "id": "/!KIBANANAME!",
+  "id": "/kibana",
   "cmd": null,
   "args": [
     "-e",
-    "http://!ELASTICEXECUTORNAME!.!ELASTICNAME!.mesos:1025",
+    "http://elasticsearch-executor.elasticsearch.mesos:1025",
     "-p",
     "5601"
   ],
@@ -67,7 +67,7 @@
     "DCOS_PACKAGE_VERSION": "4.5.3",
     "DCOS_PACKAGE_NAME": "kibana",
     "DCOS_PACKAGE_IS_FRAMEWORK": "false",
-    "HAPROXY_0_VHOST": "!KIBANAFQDN!"
+    "HAPROXY_0_VHOST": "192.0.210.103"
   },
   "acceptedResourceRoles": null,
   "residency": null,

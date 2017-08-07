@@ -22,7 +22,7 @@ filebeat.prospectors:
     - /var/log/dcos/dcos.log
 tail_files: true
 output.elasticsearch:
-   hosts: ["!ELASTICEXECUTORNAME!.!ELASTICNAME!.mesos:1025"]
+   hosts: ["elasticsearch-executor.elasticsearch.mesos:1025"]
 EOF
 
 sudo tee /etc/systemd/system/dcos-journalctl-filebeat.service<<-EOF 

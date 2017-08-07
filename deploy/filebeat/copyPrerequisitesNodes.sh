@@ -1,7 +1,7 @@
 #!/bin/bash
 rm ../yourKey/PLACEyourKEYhere
 
-ssh-add ../yourKey/!PRIVATEKEYNAME!
+ssh-add ../yourKey/id_rsa
 # Will be prompted for you passphrase
 
 sudo yum install jq -y

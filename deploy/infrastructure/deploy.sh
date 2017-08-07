@@ -3,8 +3,8 @@
 ELASTIC_NAME=elasticsearch
 ELASTIC_EXECUTOR_NAME=elasticsearch-executor
 KIBANA_NAME=kibana
-KIBANA_FQDN=YOURPUBLICFQDN
-PRIVATE_KEY_NAME=TOFILL
+KIBANA_FQDN=192.0.210.103
+PRIVATE_KEY_NAME=id_rsa
 ############## PARAMETERS #########################
 
 sed -i 's/!ELASTICNAME!/'${ELASTIC_NAME}'/g' elasticdeploy.json
