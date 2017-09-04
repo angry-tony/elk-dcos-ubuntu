@@ -1,5 +1,5 @@
 {
-  "id": "/${ELASTIC_SERVICE_NAME}",
+  "id": "/CHANGE_ELASTIC_SERVICE_NAME",
   "instances": 1,
   "cpus": 0.5,
   "mem": 2048,
@@ -15,8 +15,8 @@
     "type": "DOCKER",
     "volumes": [
       {
-        "containerPath": "${/usr/share/elasticsearch/data}",
-        "hostPath": "/${/elasticsearch-data}",
+        "containerPath": "/CHANGE_CONTAINER_VOLUMES_PATH",
+        "hostPath": "/CHANGE_HOST_VOLUMES_PATH",
         "mode": "RW"
       }
     ],
@@ -51,10 +51,10 @@
   "requirePorts": true,
   "env": {
     "cap-add": "IPC_LOCK",
-    "discovery.zen.ping.unicast.hosts": "${ELASTIC_SERVICE_NAME}.marathon.mesos",
-    "cluster.name": "${ELA_CLUSTER_NAME}",
-    "node.name": "${ELA_NODE_NAME}",
-    "network.host": "${ELA_NETWORK_HOST}",
+    "discovery.zen.ping.unicast.hosts": "CHANGE_ELASTIC_SERVICE_NAME.marathon.mesos",
+    "cluster.name": "CHANGE_ELA_CLUSTER_NAME",
+    "node.name": "CHANGE_ELASTIC_SERVICE_NAME.marathon.mesos",
+    "network.host": "CHANGE_ELA_NETWORK_HOST",
     "ulimit": "nofile=65536:65536",
     "gateway.recover_after_nodes": "1",
     "ES_JAVA_OPTS": "-Xms1g -Xmx1g",
