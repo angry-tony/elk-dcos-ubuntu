@@ -2,7 +2,7 @@
 
 sudo yum install jq -y
 #curl --unix-socket /run/dcos/3dt.sock http://localhost/system/health/v1/nodes | jq '.nodes[].host_ip' | sed 's/\"//g' | sed '/172/d' > nodes.txt
-
+a
 sudo tee nodes.txt <<-EOF 
 192.0.220.101
 192.0.220.102
