@@ -28,3 +28,5 @@ curl -X PUT --cacert /tmp/dcos-ca.crt \
 
 #curl -X POST --cacert /tmp/dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" --data-binary @marathon-lb.json https://marathon.mesos:8443/v2/apps -H 'Content-Type: application/json'
 curl -X POST --cacert /tmp/dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" --data-binary @marathon-lb.json https://${DCOS_MASTER_NODE_IP}:8443/v2/apps -H 'Content-Type: application/json'
+
+# http://public-slave-node-ip:9090/haproxy?stats
