@@ -4,7 +4,7 @@ ELASTIC_SERVICE_NAME=elasticsearch
 HOST_VOLUMES_PATH=elasticsearch-data
 CONTAINER_VOLUMES_PATH='usr\/share\/elasticsearch\/data'
 ELA_CLUSTER_NAME=ELASTICCLUSTER
-ELA_NETWORK_HOST=192.0.220.104
+ELA_NETWORK_HOST=192.0.220.104  # slave-node-ip
 
 KIBANA_SERVICE_NAME=kibana
 
@@ -20,6 +20,7 @@ sed -i 's/CHANGE_KIBANA_SERVICE_NAME/'${KIBANA_SERVICE_NAME}'/g' kibanadeploy.js
 sed -i 's/CHANGE_ELASTIC_SERVICE_NAME/'${ELASTIC_SERVICE_NAME}'/g' filebeatdeploy.sh
 
 #curl -X POST --cacert /tmp/dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" --data-binary @elasticdeploy.json https://marathon.mesos:8443/v2/apps -H 'Content-Type: application/json'
+ssh ${ELA_NETWORK_HOST} "mkdir -m 777 /${HOST_VOLUMES_PATH}
 curl -X POST --cacert /tmp/dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" --data-binary @elasticdeploy.json https://${DCOS_MASTER_NODE_IP}:8443/v2/apps -H 'Content-Type: application/json'
 #
 #curl -u elastic http://RUNING_ELA_ON_SLAVE_NODE_IP:9200
