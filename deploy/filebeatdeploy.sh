@@ -17,7 +17,7 @@ filebeat.prospectors:
     - /var/log/dcos/dcos.log
 tail_files: true
 output.elasticsearch:
-  hosts: ["CHANGE_ELASTIC_SERVICE_NAME.marathon.mesos:9200"]
+  hosts: ["elasticsearch.marathon.mesos:9200"]
   username: "elastic"
   password: "changeme"
 #output.logstash:

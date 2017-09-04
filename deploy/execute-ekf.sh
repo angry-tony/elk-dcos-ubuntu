@@ -1,4 +1,5 @@
 #!/bin/bash
+DCOS_MASTER_NODE_IP=192.0.220.102
 ELASTIC_SERVICE_NAME=elasticsearch
 HOST_VOLUMES_PATH=elasticsearch-data
 CONTAINER_VOLUMES_PATH='usr\/share\/elasticsearch\/data'
@@ -18,10 +19,11 @@ sed -i 's/CHANGE_KIBANA_SERVICE_NAME/'${KIBANA_SERVICE_NAME}'/g' kibanadeploy.js
 
 sed -i 's/CHANGE_ELASTIC_SERVICE_NAME/'${ELASTIC_SERVICE_NAME}'/g' filebeatdeploy.sh
 
-#
-curl -X POST --cacert /tmp/dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" --data-binary @elasticdeploy.json https://marathon.mesos:8443/v2/apps -H 'Content-Type: application/json'
+#curl -X POST --cacert /tmp/dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" --data-binary @elasticdeploy.json https://marathon.mesos:8443/v2/apps -H 'Content-Type: application/json'
+curl -X POST --cacert /tmp/dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" --data-binary @elasticdeploy.json https://${DCOS_MASTER_NODE_IP}:8443/v2/apps -H 'Content-Type: application/json'
 #
 #curl -u elastic http://RUNING_ELA_ON_SLAVE_NODE_IP:9200
 sleep 5
 #
-curl -X POST --cacert /tmp/dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" --data-binary @kibanadeploy.json https://marathon.mesos:8443/v2/apps -H 'Content-Type: application/json'
+#curl -X POST --cacert /tmp/dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" --data-binary @kibanadeploy.json https://marathon.mesos:8443/v2/apps -H 'Content-Type: application/json'
+curl -X POST --cacert /tmp/dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" --data-binary @kibanadeploy.json https://${DCOS_MASTER_NODE_IP}:8443/v2/apps -H 'Content-Type: application/json'

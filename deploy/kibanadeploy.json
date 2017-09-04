@@ -1,5 +1,5 @@
 {
-  "id": "/CHANGE_KIBANA_SERVICE_NAME",
+  "id": "/kibana",
   "instances": 1,
   "cpus": 0.3,
   "mem": 2048,
@@ -56,14 +56,14 @@
   "killSelection": "YOUNGEST_FIRST",
   "requirePorts": false,
   "labels": {
-    "HAPROXY_DEPLOYMENT_GROUP": "CHANGE_KIBANA_SERVICE_NAME",
+    "HAPROXY_DEPLOYMENT_GROUP": "kibana",
     "HAPROXY_DEPLOYMENT_ALT_PORT": "10005",
     "HAPROXY_GROUP": "external",
     "HAPROXY_0_REDIRECT_TO_HTTPS": "false"
   },
   "env": {
-    "ELASTICSEARCH_URL": "http://CHANGE_ELASTIC_SERVICE_NAME.marathon.mesos:9200",
-    "SERVER_NAME": "CHANGE_KIBANA_SERVICE_NAME.marathon.mesos",
+    "ELASTICSEARCH_URL": "http://elasticsearch.marathon.mesos:9200",
+    "SERVER_NAME": "kibana.marathon.mesos",
     "ELASTICSEARCH_PASSWORD": "changeme",
     "SERVER_HOST": "0.0.0.0",
     "ELASTICSEARCH_USERNAME": "elastic",
