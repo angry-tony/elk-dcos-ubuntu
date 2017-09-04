@@ -1,5 +1,5 @@
 {
-  "id": "/elasticsearch",
+  "id": "/!ELASTICNAME!",
   "volumes": null,
   "cmd": null,
   "args": [
@@ -12,9 +12,9 @@
     "--frameworkFailoverTimeout",
     "2592000.0",
     "--frameworkName",
-    "elasticsearch",
+    "!ELASTICNAME!",
     "--elasticsearchNodes",
-    "1",
+    "3",
     "--elasticsearchClusterName",
     "mesos-ha",
     "--elasticsearchCpu",
@@ -26,7 +26,7 @@
     "--executorForcePullImage",
     "false",
     "--executorName",
-    "elasticsearch-executor",
+    "!ELASTICEXECUTORNAME!",
     "--elasticsearchDockerImage",
     "elasticsearch:2.4.1"
   ],
