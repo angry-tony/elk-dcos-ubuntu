@@ -7,9 +7,6 @@ ELA_NETWORK_HOST=RUNING_ELA_ON_SLAVE_NODE_IP
 
 KIBANA_SERVICE_NAME=kibana
 
-PRIVATE_KEY_NAME=id_rsa
-############## PARAMETERS #########################
-
 sed -i 's/CHANGE_ELASTIC_SERVICE_NAME/'${ELASTIC_SERVICE_NAME}'/g' elasticdeploy.json
 sed -i 's/CHANGE_HOST_VOLUMES_PATH/'${HOST_VOLUMES_PATH}'/g' elasticdeploy.json
 sed -i 's/CHANGE_CONTAINER_VOLUMES_PATH/'${CONTAINER_VOLUMES_PATH}'/g' elasticdeploy.json
@@ -20,7 +17,6 @@ sed -i 's/CHANGE_ELASTIC_SERVICE_NAME/'${ELASTIC_SERVICE_NAME}'/g' kibanadeploy.
 sed -i 's/CHANGE_KIBANA_SERVICE_NAME/'${KIBANA_SERVICE_NAME}'/g' kibanadeploy.json
 
 sed -i 's/CHANGE_ELASTIC_SERVICE_NAME/'${ELASTIC_SERVICE_NAME}'/g' filebeatdeploy.sh
-
 
 #
 curl -X POST --cacert /tmp/dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" --data-binary @elasticdeploy.json https://marathon.mesos:8443/v2/apps -H 'Content-Type: application/json'
